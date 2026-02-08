@@ -41,6 +41,11 @@
 #define TIMER_0_EXTERNAL_FALLING()  TCCR0B = (1 << CS02) | (1 << CS01)
 #define TIMER_0_EXTERNAL_RISING()  TCCR0B = (1 << CS02) | (1 << CS01) | (1 << CS00)
 
+/**
+ * Types: OCIE0B, OCIE0A, TOIE0
+ */
+#define TIMER_0_INTERRUPT_ENABLE(type) TIMSK0 |= (1 << type)
+
 #define ADC_START()  (ADCSRA |= (1 << ADSC))
 #define ADC_IS_RUNNING() (ADCSRA & (1 << ADSC))
 #define ADC_ENABLE() (ADCSRA |= (1 << ADEN))
